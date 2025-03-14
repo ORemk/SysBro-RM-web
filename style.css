@@ -1,0 +1,180 @@
+/* Fondo dinámico de tecnología (GIF) */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://media.giphy.com/media/3o6Zt5WXY5vpHEdPfy/giphy.gif'); /* Fondo GIF de tecnología */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+}
+
+/* Estilo del contenedor principal */
+.container {
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente para contraste */
+    padding: 30px;
+    width: 60%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Estilo del encabezado */
+header h1 {
+    color: #00bcd4;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: bounceIn 1s ease-in-out;
+}
+
+/* Animación de rebote */
+@keyframes bounceIn {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Formulario */
+form {
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #00bcd4;
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+form input:focus, form button:hover {
+    border-color: #00ffcc;
+    transform: scale(1.05);
+}
+
+form button {
+    background-color: #00bcd4;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+form button:hover {
+    background-color: #00ffcc;
+}
+
+/* Barra de búsqueda */
+#busqueda {
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border: 1px solid #00bcd4;
+    width: 50%;
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+#busqueda:focus {
+    border-color: #00ffcc;
+    transform: scale(1.05);
+}
+
+/* Tabla de productos */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+table th {
+    background-color: #00bcd4;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 255, 255, 0.1);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 255, 255, 0.2);
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Botones de la tabla */
+button {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-modificar {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn-eliminar {
+    background-color: #f44336;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Efecto de entrada suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Diseño del logo del cliente */
+#logo-cliente {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Productos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-color: rgb(42, 218, 26);
+            background-image: url('IMAGES/Fond.gif');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Contenedor general */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo para el logo del cliente */
+        .logo-container {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px dashed #00BCD4; /* Borde estilizado */
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .logo-container:hover {
+            background-color: #e0f7fa; /* Color de fondo al pasar el mouse */
+        }
+
+        .logo-container input[type="file"] {
+            display: none; /* Ocultar el botón de archivo, pero aún clickable */
+        }
+
+        .logo-container label {
+            font-size: 18px;
+            color: #00BCD4;
+            cursor: pointer;
+        }
+
+        .logo-container img {
+            width: 150px; /* Tamaño moderado de la imagen */
+            height: auto;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Estilo para el formulario de inventario */
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #00BCD4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #008C9E;
+        }
+
+        /* Estilo para la tabla de productos */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #00BCD4;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Contenedor para el logo del cliente -->
+    <div class="logo-container">
+        <label for="logo-upload">Subir Logo del Cliente</label>
+        <input type="file" id="logo-upload" accept="image/*" onchange="showLogo(event)">
+        <div id="logo-display">
+            <p>Haz clic aquí para subir el logo</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>📦 Inventario de Productos</h1>
+        </header>
+
+        <form id="formulario-inventario" enctype="multipart/form-data">
+            <label for="nombre-producto">Nombre del Producto:</label>
+            <input type="text" id="nombre-producto" required>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" required>
+
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" required>
+
+            <!-- Campo para subir imagen del producto -->
+            <label for="imagen-producto">Imagen del Producto:</label>
+            <input type="file" id="imagen-producto" accept="image/*" required>
+
+            <button type="submit" class="btn-agregar">Agregar Producto</button>
+        </form>
+
+        <input type="text" id="busqueda" placeholder="🔍 Buscar producto..." onkeyup="inventario.buscarProducto()">
+
+        <p id="error-mensaje" class="error" style="display: none;">❌ Este producto ya está registrado.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-body">
+                <!-- Aquí se mostrarán los productos -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Función para mostrar el logo después de subirlo
+        function showLogo(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const logoDisplay = document.getElementById('logo-display');
+                logoDisplay.innerHTML = `<img src="${e.target.result}" alt="Logo Cliente">`; // Mostrar el logo cargado
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
